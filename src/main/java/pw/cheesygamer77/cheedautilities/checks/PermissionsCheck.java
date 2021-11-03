@@ -3,14 +3,11 @@ package pw.cheesygamer77.cheedautilities.checks;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.GuildChannel;
 import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.User;
 import org.jetbrains.annotations.NotNull;
 import pw.cheesygamer77.cheedautilities.commands.Context;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
-import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
