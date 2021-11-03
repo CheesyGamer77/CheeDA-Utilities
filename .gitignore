@@ -1,0 +1,8 @@
+.idea/
+.project
+.classpath
+.settings/
+target/
+bot.properties
+*.iml
+*.db
