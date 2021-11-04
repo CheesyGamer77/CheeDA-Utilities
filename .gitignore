@@ -6,3 +6,4 @@ target/
 bot.properties
 *.iml
 *.db
+out/
