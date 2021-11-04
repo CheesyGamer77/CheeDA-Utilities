@@ -11,8 +11,6 @@ import net.dv8tion.jda.api.requests.RestAction;
 import net.dv8tion.jda.api.requests.restaction.interactions.ReplyAction;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import pw.cheesygamer77.cheedautilities.ListUtils;
 import pw.cheesygamer77.cheedautilities.checks.Check;
 
@@ -31,8 +29,6 @@ public class ButtonPaginator {
     protected final Consumer<Message> doneCallback;
     protected final Set<User> users;
     protected final Set<Role> roles;
-
-    public static final Logger LOGGER = LoggerFactory.getLogger(ButtonPaginator.class);
 
     ButtonPaginator(EventWaiter waiter, List<Message> messages, Consumer<Message> timeoutCallback,
                     Consumer<Message> checkFailureCallback, Consumer<Message> doneCallback, Set<User> validUsers, Set<Role> validRoles) {
@@ -159,7 +155,6 @@ public class ButtonPaginator {
                 newPageNum = pages.size() - 1;
                 break;
             case "stop":
-                LOGGER.debug("Someone clicked the big red button");
                 event.editMessage(message)
                         .setActionRow(
                                 Button.secondary("jumpLeft", Emoji.fromMarkdown("<:jumpleft:899051534044786699>")).asDisabled(),
@@ -185,7 +180,6 @@ public class ButtonPaginator {
     }
 
     private boolean checkButtons(@NotNull ButtonClickEvent event, long messageID) {
-        LOGGER.debug("Checking buttons");
         if(event.getMessage().getIdLong() != messageID)
             return false;
 
@@ -193,7 +187,6 @@ public class ButtonPaginator {
     }
 
     private boolean isValidUser(@NotNull User user, @Nullable Guild guild) {
-        LOGGER.debug("Checking valid user");
         if(user.isBot())
             return false;
         if(users.isEmpty() && roles.isEmpty())
