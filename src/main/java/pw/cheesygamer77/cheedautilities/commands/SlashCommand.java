@@ -52,6 +52,7 @@ public abstract class SlashCommand extends ListenerAdapter {
                 }
                 catch (CheckFailure error) {
                     onCommandError(ctx, error);
+                    return;
                 }
             }
         }
