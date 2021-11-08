@@ -4,6 +4,7 @@ import pw.cheesygamer77.cheedautilities.commands.Context;
 import pw.cheesygamer77.cheedautilities.errors.AllCheckFailure;
 import pw.cheesygamer77.cheedautilities.errors.CheckFailure;
 
+@SuppressWarnings("unused")
 public class AllCheck extends MultiCheck {
     public AllCheck(Check... checks) {
         super(true, checks);

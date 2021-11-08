@@ -4,6 +4,7 @@ import org.jetbrains.annotations.NotNull;
 import pw.cheesygamer77.cheedautilities.commands.Context;
 import pw.cheesygamer77.cheedautilities.errors.ConversionFailed;
 
+@SuppressWarnings("unused")
 public class EnumConverter<T extends Enum<T>> implements Converter<T> {
     Class<T> klass;
 

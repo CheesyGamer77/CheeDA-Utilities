@@ -2,6 +2,7 @@ package pw.cheesygamer77.cheedautilities;
 
 import java.awt.Color;
 
+@SuppressWarnings("unused")
 public class DiscordColor {
     public static final Color TEAL = new Color(0x1abc9c);
     public static final Color DARK_TEAL = new Color(0x11806a);

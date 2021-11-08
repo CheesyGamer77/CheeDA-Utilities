@@ -8,6 +8,7 @@ import pw.cheesygamer77.cheedautilities.errors.ConversionFailed;
 import pw.cheesygamer77.cheedautilities.errors.MessageFromDifferentGuild;
 import pw.cheesygamer77.cheedautilities.errors.MessageNotFromGuild;
 
+@SuppressWarnings("unused")
 public class GuildMessageConverter extends GlobalMessageConverter {
     /**
      * Converts a given String argument to a valid {@link Message} using the following lookup strategy

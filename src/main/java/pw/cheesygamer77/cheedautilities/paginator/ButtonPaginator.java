@@ -21,6 +21,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+@SuppressWarnings("unused")
 public class ButtonPaginator {
     protected final EventWaiter waiter;
     protected final List<Message> pages;
@@ -253,21 +254,16 @@ public class ButtonPaginator {
         protected final Set<User> users = new HashSet<>();
         protected final Set<Role> roles = new HashSet<>();
 
-        protected Consumer<Message> timeoutCallback = message -> {
-            message.editMessage(message).setActionRow(
-                    Button.secondary("jumpLeft", Emoji.fromMarkdown("<:jumpleft:899051534044786699>")).asDisabled(),
-                    Button.primary("left", Emoji.fromMarkdown("<:left:899051552453591072>")).asDisabled(),
-                    Button.primary("right", Emoji.fromMarkdown("<:right:899051560972197909>")).asDisabled(),
-                    Button.secondary("jumpRight", Emoji.fromMarkdown("<:jumpright:899051544278876161>")).asDisabled(),
-                    Button.danger("stop", Emoji.fromMarkdown("<:trashcan:899051569692160002>")).asDisabled()
+        protected Consumer<Message> timeoutCallback = message -> message.editMessage(message).setActionRow(
+                Button.secondary("jumpLeft", Emoji.fromMarkdown("<:jumpleft:899051534044786699>")).asDisabled(),
+                Button.primary("left", Emoji.fromMarkdown("<:left:899051552453591072>")).asDisabled(),
+                Button.primary("right", Emoji.fromMarkdown("<:right:899051560972197909>")).asDisabled(),
+                Button.secondary("jumpRight", Emoji.fromMarkdown("<:jumpright:899051544278876161>")).asDisabled(),
+                Button.danger("stop", Emoji.fromMarkdown("<:trashcan:899051569692160002>")).asDisabled()
             ).queue();
-        };
 
-        protected Consumer<Message> checkFailureCallback = message -> {
-            message.getChannel()
-                    .sendMessage("Check failure")
-                    .queue();
-        };
+        protected Consumer<Message> checkFailureCallback = message -> message.getChannel()
+                .sendMessage("Check failure").queue();
 
         protected Consumer<Message> doneCallback = message -> {};
 

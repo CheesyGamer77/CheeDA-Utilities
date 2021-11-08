@@ -9,6 +9,7 @@ import pw.cheesygamer77.cheedautilities.converters.Converter;
 
 import java.util.HashMap;
 
+@SuppressWarnings("unused")
 public class ComponentInteractionContext implements Context {
     private final ComponentInteraction interaction;
 
@@ -44,6 +45,12 @@ public class ComponentInteractionContext implements Context {
     @Override
     public @Nullable User getAuthorAsUser() {
         return interaction.getMessage().getAuthor();
+    }
+
+    @Override
+    public @Nullable Member getMember() {
+        assert getInteraction() != null;
+        return getInteraction().getMember();
     }
 
     @Override
