@@ -1,18 +1,28 @@
 package pw.cheesygamer77.cheedautilities.checks;
 
 import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.Member;
+import org.jetbrains.annotations.NotNull;
+import pw.cheesygamer77.cheedautilities.commands.Context;
 
-public class MemberHasPermissionsCheck extends PermissionsCheck {
-    public MemberHasPermissionsCheck(boolean useGuildPermissions, Permission... permissions) {
-        super(ctx -> {
-            if (ctx.getGuild() != null) {
-                return ctx.getGuild().getSelfMember();
-            }
-            return ctx.getJDA().getSelfUser();
-        }, useGuildPermissions, permissions);
-    }
+import java.util.Arrays;
+import java.util.function.Predicate;
+
+@SuppressWarnings("unused")
+public class MemberHasPermissionsCheck implements Check {
+    private final Permission[] permissions;
 
     public MemberHasPermissionsCheck(Permission... permissions) {
-        this(false, permissions);
+        this.permissions = permissions;
+    }
+
+    @Override
+    public @NotNull Predicate<Context> getPredicate() {
+        return ctx -> {
+            Member member = ctx.getMember();
+            if(member != null)
+                return ctx.getMember().getPermissions().containsAll(Arrays.asList(permissions));
+            return true;
+        };
     }
 }
