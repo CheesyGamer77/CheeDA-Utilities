@@ -11,6 +11,7 @@ import pw.cheesygamer77.cheedautilities.errors.CommandError;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("unused")
 public abstract class SlashCommand extends ListenerAdapter {
     private final String name;
     private final String description;
@@ -59,10 +60,15 @@ public abstract class SlashCommand extends ListenerAdapter {
 
         // invoke command
         // TODO: Add argument parsing?
-        invoke(event);
+        try {
+            invoke(event);
+        }
+        catch (CommandError error) {
+            onCommandError(ctx, error);
+        }
     }
 
-    public abstract void invoke(@NotNull SlashCommandEvent event);
+    public abstract void invoke(@NotNull SlashCommandEvent event) throws CommandError;
 
     public CommandData getData() {
         return this.commandData;
