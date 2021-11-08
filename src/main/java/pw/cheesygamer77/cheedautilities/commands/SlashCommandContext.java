@@ -61,6 +61,11 @@ public class SlashCommandContext implements Context {
     }
 
     @Override
+    public @Nullable Member getMember() {
+        return event.getMember();
+    }
+
+    @Override
     public @Nullable HashMap<String, String> getArguments() {
         List<OptionMapping> options = event.getOptions();
         if(options.isEmpty())

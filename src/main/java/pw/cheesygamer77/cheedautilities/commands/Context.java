@@ -21,6 +21,8 @@ public interface Context {
 
     @Nullable User getAuthorAsUser();
 
+    @Nullable Member getMember();
+
     @Nullable HashMap<String, String> getArguments();
 
     @Nullable HashMap<String, Converter<?>> getConverters();
