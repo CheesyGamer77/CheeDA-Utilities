@@ -7,11 +7,8 @@ import pw.cheesygamer77.cheedautilities.commands.Context;
 import pw.cheesygamer77.cheedautilities.errors.ConversionFailed;
 
 import java.util.concurrent.ExecutionException;
-import java.util.regex.Pattern;
 
-public class GlobalMessageConverter extends SnowflakeConverter implements Converter<Message> {
-    public static final Pattern SNOWFLAKE_PAIR_PATTERN = Pattern.compile(SNOWFLAKE_REGEX + "-" + SNOWFLAKE_REGEX);
-
+public class GlobalMessageConverter implements Converter<Message> {
     /**
      * Converts a given String argument to a valid {@link Message} using the following lookup strategy:
      * <ol>
