@@ -25,6 +25,14 @@ public abstract class SlashCommand extends ListenerAdapter {
         this.checks = new ArrayList<>();
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
     public SlashCommand addCheck(Check check) {
         this.checks.add(check);
         return this;
