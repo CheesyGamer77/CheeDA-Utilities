@@ -30,7 +30,7 @@ public class GuildMessageConverter extends GlobalMessageConverter {
 
         Message message = super.convert(ctx, argument);
         if(message.isFromGuild())
-            if(message.getGuild().equals(ctx.getGuild()))
+            if(!message.getGuild().equals(ctx.getGuild()))
                 return message;
             else
                 throw new MessageFromDifferentGuild();
