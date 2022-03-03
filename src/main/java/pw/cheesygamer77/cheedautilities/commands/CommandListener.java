@@ -4,7 +4,6 @@ import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 import pw.cheesygamer77.cheedautilities.errors.CommandNotFound;
-import pw.cheesygamer77.cheedautilities.internal.TriConsumer;
 import pw.cheesygamer77.cheedautilities.checks.Check;
 import pw.cheesygamer77.cheedautilities.errors.CommandError;
 import pw.cheesygamer77.cheedautilities.internal.ISlashCommand;
@@ -13,18 +12,16 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.BiConsumer;
 
+@SuppressWarnings("unused")
 public class CommandListener extends ListenerAdapter {
     private final HashMap<String, SlashCommand> slashCommands = new HashMap<>();
     private final Set<Check> checks = new HashSet<>();
-    private TriConsumer<@NotNull SlashCommandEvent, @NotNull SlashCommandContext, @NotNull CommandError> onCommandError = (event, ctx, error) -> {};
+    private final BiConsumer<Context, CommandError> onCommandErrorCallback;
 
-    public CommandListener() {}
-
-    public CommandListener(
-            TriConsumer<@NotNull SlashCommandEvent, @NotNull SlashCommandContext, @NotNull CommandError> onCommandError
-    ) {
-        this.onCommandError = onCommandError;
+    public CommandListener(BiConsumer<Context, CommandError> onCommandErrorCallback) {
+        this.onCommandErrorCallback = onCommandErrorCallback;
     }
 
     public CommandListener addChecks(Check... checks) {
@@ -57,7 +54,7 @@ public class CommandListener extends ListenerAdapter {
             throw new CommandNotFound(event);
         }
         catch (CommandError error) {
-            onCommandError.accept(event, ctx, error);
+            onCommandErrorCallback.accept(ctx, error);
         }
     }
 }
