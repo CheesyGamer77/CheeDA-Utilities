@@ -3,6 +3,8 @@ package pw.cheesygamer77.cheedautilities.commands;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
+import pw.cheesygamer77.cheedautilities.context.Context;
+import pw.cheesygamer77.cheedautilities.context.SlashCommandContext;
 import pw.cheesygamer77.cheedautilities.errors.CommandNotFound;
 import pw.cheesygamer77.cheedautilities.checks.Check;
 import pw.cheesygamer77.cheedautilities.errors.CommandError;

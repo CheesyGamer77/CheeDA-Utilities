@@ -1,10 +1,11 @@
-package pw.cheesygamer77.cheedautilities.commands;
+package pw.cheesygamer77.cheedautilities.context;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.interactions.components.ComponentInteraction;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import pw.cheesygamer77.cheedautilities.context.Context;
 import pw.cheesygamer77.cheedautilities.converters.Converter;
 
 import java.util.HashMap;

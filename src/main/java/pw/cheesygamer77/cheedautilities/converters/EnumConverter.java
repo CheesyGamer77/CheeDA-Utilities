@@ -1,7 +1,7 @@
 package pw.cheesygamer77.cheedautilities.converters;
 
 import org.jetbrains.annotations.NotNull;
-import pw.cheesygamer77.cheedautilities.commands.Context;
+import pw.cheesygamer77.cheedautilities.context.Context;
 import pw.cheesygamer77.cheedautilities.errors.ConversionFailed;
 
 @SuppressWarnings("unused")

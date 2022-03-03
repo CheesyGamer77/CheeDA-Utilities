@@ -1,4 +1,4 @@
-package pw.cheesygamer77.cheedautilities.commands;
+package pw.cheesygamer77.cheedautilities.context;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.*;

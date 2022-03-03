@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.interactions.commands.build.SubcommandGroupData;
 import net.dv8tion.jda.api.requests.restaction.CommandCreateAction;
 import org.jetbrains.annotations.NotNull;
 import pw.cheesygamer77.cheedautilities.checks.Check;
+import pw.cheesygamer77.cheedautilities.context.SlashCommandContext;
 import pw.cheesygamer77.cheedautilities.errors.CheckFailure;
 import pw.cheesygamer77.cheedautilities.errors.CommandNotFound;
 import pw.cheesygamer77.cheedautilities.errors.SubCommandGroupNotFound;

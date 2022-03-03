@@ -4,6 +4,7 @@ import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.interactions.commands.build.SubcommandData;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import pw.cheesygamer77.cheedautilities.context.SlashCommandContext;
 import pw.cheesygamer77.cheedautilities.errors.CommandNotFound;
 import pw.cheesygamer77.cheedautilities.internal.ISlashCommand;
 import pw.cheesygamer77.cheedautilities.internal.SlashCommandDataAdapter;

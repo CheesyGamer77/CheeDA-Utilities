@@ -2,7 +2,7 @@ package pw.cheesygamer77.cheedautilities.converters;
 
 import net.dv8tion.jda.api.entities.Message;
 import org.jetbrains.annotations.NotNull;
-import pw.cheesygamer77.cheedautilities.commands.Context;
+import pw.cheesygamer77.cheedautilities.context.Context;
 import pw.cheesygamer77.cheedautilities.errors.ContextNotFromGuild;
 import pw.cheesygamer77.cheedautilities.errors.ConversionFailed;
 import pw.cheesygamer77.cheedautilities.errors.MessageFromDifferentGuild;

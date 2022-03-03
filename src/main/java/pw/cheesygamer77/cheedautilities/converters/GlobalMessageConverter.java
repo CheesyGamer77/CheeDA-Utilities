@@ -3,7 +3,7 @@ package pw.cheesygamer77.cheedautilities.converters;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.TextChannel;
 import org.jetbrains.annotations.NotNull;
-import pw.cheesygamer77.cheedautilities.commands.Context;
+import pw.cheesygamer77.cheedautilities.context.Context;
 import pw.cheesygamer77.cheedautilities.errors.ConversionFailed;
 
 import java.util.Arrays;

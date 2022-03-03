@@ -1,14 +1,11 @@
 package pw.cheesygamer77.cheedautilities.internal;
 
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
-import net.dv8tion.jda.api.interactions.commands.build.BaseCommand;
-import net.dv8tion.jda.api.interactions.commands.build.CommandData;
-import net.dv8tion.jda.api.utils.data.SerializableData;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.LoggerFactory;
 import pw.cheesygamer77.cheedautilities.checks.Check;
-import pw.cheesygamer77.cheedautilities.commands.SlashCommandContext;
+import pw.cheesygamer77.cheedautilities.context.SlashCommandContext;
 import pw.cheesygamer77.cheedautilities.errors.CommandError;
 import pw.cheesygamer77.cheedautilities.errors.CommandNotFound;
 

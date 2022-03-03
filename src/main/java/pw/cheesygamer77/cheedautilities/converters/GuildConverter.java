@@ -3,7 +3,7 @@ package pw.cheesygamer77.cheedautilities.converters;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
 import org.jetbrains.annotations.NotNull;
-import pw.cheesygamer77.cheedautilities.commands.Context;
+import pw.cheesygamer77.cheedautilities.context.Context;
 import pw.cheesygamer77.cheedautilities.errors.GuildConversionFailed;
 
 import java.util.List;
