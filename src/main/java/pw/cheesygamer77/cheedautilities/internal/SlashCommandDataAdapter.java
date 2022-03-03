@@ -3,7 +3,6 @@ package pw.cheesygamer77.cheedautilities.internal;
 import org.jetbrains.annotations.NotNull;
 import net.dv8tion.jda.api.interactions.commands.build.*;
 import pw.cheesygamer77.cheedautilities.commands.SubCommand;
-import pw.cheesygamer77.cheedautilities.commands.SubCommandGroup;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,6 +13,7 @@ import java.util.Collection;
  * doesn't extend {@link BaseCommand} unlike {@link CommandData} and {@link SubcommandData}. Ideally
  * Java would support union types but that's not a thing so we have to do this shit
  */
+@Deprecated(since = "1.0.0", forRemoval = true)
 public final class SlashCommandDataAdapter {
     private final String name;
     private final String description;
