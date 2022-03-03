@@ -7,3 +7,4 @@ bot.properties
 *.iml
 *.db
 out/
+*.log
