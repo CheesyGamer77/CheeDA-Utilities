@@ -2,7 +2,7 @@ package pw.cheesygamer77.cheedautilities.internal;
 
 import org.jetbrains.annotations.NotNull;
 import net.dv8tion.jda.api.interactions.commands.build.*;
-import pw.cheesygamer77.cheedautilities.commands.SubCommand;
+import pw.cheesygamer77.cheedautilities.commands.slash.SubCommand;
 
 import java.util.ArrayList;
 import java.util.Collection;
