@@ -35,8 +35,7 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>5.0.0-alpha.9</version>
-            <scope>provided</scope>
+            <version>4.3.0_348</version>
             <exclusions>
                 <exclusion>
                     <groupId>club.minnced</groupId>
@@ -54,7 +53,7 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.10</version>
+            <version>1.2.6</version>
         </dependency>
     </dependencies>
 

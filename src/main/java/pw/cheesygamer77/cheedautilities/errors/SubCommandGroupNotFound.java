@@ -1,10 +1,10 @@
 package pw.cheesygamer77.cheedautilities.errors;
 
+import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import org.jetbrains.annotations.NotNull;
-import pw.cheesygamer77.cheedautilities.context.SlashCommandContext;
 
 public class SubCommandGroupNotFound extends CommandNotFound {
-    public SubCommandGroupNotFound(@NotNull SlashCommandContext ctx) {
-        super(ctx);
+    public SubCommandGroupNotFound(@NotNull SlashCommandEvent event) {
+        super(event);
     }
 }

@@ -1,6 +1,6 @@
 package pw.cheesygamer77.cheedautilities.checks;
 
-import pw.cheesygamer77.cheedautilities.context.InteractionContext;
+import pw.cheesygamer77.cheedautilities.context.Context;
 import pw.cheesygamer77.cheedautilities.errors.AnyCheckFailure;
 import pw.cheesygamer77.cheedautilities.errors.CheckFailure;
 
@@ -11,7 +11,7 @@ public class AnyCheck extends MultiCheck {
     }
 
     @Override
-    public void check(InteractionContext ctx) throws AnyCheckFailure {
+    public void check(Context ctx) throws AnyCheckFailure {
         try {
             super.check(ctx);
         } catch (CheckFailure ignored) {

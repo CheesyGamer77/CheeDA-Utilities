@@ -1,7 +1,7 @@
 package pw.cheesygamer77.cheedautilities.checks;
 
 import org.jetbrains.annotations.NotNull;
-import pw.cheesygamer77.cheedautilities.context.InteractionContext;
+import pw.cheesygamer77.cheedautilities.context.Context;
 
 import java.util.function.Predicate;
 
@@ -15,7 +15,7 @@ public class MultiCheck implements Check {
     }
 
     @Override
-    public @NotNull Predicate<InteractionContext> getPredicate() {
+    public @NotNull Predicate<Context> getPredicate() {
         return ctx -> {
             for(Check check : checks) {
                 if(checkAll && !check.getPredicate().test(ctx))
