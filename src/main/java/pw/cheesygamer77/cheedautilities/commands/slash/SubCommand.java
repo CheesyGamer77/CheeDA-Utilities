@@ -1,19 +1,16 @@
 package pw.cheesygamer77.cheedautilities.commands.slash;
 
-import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.interactions.commands.build.SubcommandData;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import pw.cheesygamer77.cheedautilities.commands.InvokableCommand;
 import pw.cheesygamer77.cheedautilities.context.SlashCommandContext;
-import pw.cheesygamer77.cheedautilities.errors.CommandNotFound;
-import pw.cheesygamer77.cheedautilities.internal.ISlashCommand;
-import pw.cheesygamer77.cheedautilities.internal.SlashCommandDataAdapter;
 
-public abstract class SubCommand implements ISlashCommand<SlashCommandDataAdapter> {
-    private final SlashCommandDataAdapter data;
+public abstract class SubCommand implements InvokableCommand<SlashCommandContext> {
+    private SubcommandData data;
 
     public SubCommand(SubcommandData data) {
-        this.data = new SlashCommandDataAdapter(data);
+        this.data = data;
     }
 
     @Override
@@ -27,17 +24,18 @@ public abstract class SubCommand implements ISlashCommand<SlashCommandDataAdapte
     }
 
     @Override
-    public SlashCommandDataAdapter getData() {
+    public @NotNull SubcommandData getData() {
         return data;
     }
 
+    // TODO: This should not be here in prod
     @Override
     public String toString() {
         return getName() + ": " + data.getOptions().size() + " options total";
     }
 
     @Override
-    public @Nullable ISlashCommand<?> parse(@NotNull SlashCommandEvent event, @NotNull SlashCommandContext ctx) throws CommandNotFound {
+    public @Nullable InvokableCommand<SlashCommandContext> parse(@NotNull SlashCommandContext ctx) {
         return this;
     }
 }
