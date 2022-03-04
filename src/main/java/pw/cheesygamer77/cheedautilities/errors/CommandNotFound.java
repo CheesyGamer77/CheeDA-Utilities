@@ -1,16 +1,16 @@
 package pw.cheesygamer77.cheedautilities.errors;
 
-import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import org.jetbrains.annotations.NotNull;
+import pw.cheesygamer77.cheedautilities.context.CommandContext;
 
 public class CommandNotFound extends CommandError {
-    private final SlashCommandEvent event;
+    private final CommandContext<?, ?> ctx;
 
-    public CommandNotFound(@NotNull SlashCommandEvent event) {
-        this.event = event;
+    public CommandNotFound(@NotNull CommandContext<?, ?> ctx) {
+        this.ctx = ctx;
     }
 
-    public SlashCommandEvent getEvent() {
-        return event;
+    public CommandContext<?, ?> getContext() {
+        return ctx;
     }
 }
