@@ -3,7 +3,7 @@ package pw.cheesygamer77.cheedautilities.checks;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import org.jetbrains.annotations.NotNull;
-import pw.cheesygamer77.cheedautilities.context.Context;
+import pw.cheesygamer77.cheedautilities.context.InteractionContext;
 
 import java.util.Arrays;
 import java.util.function.Predicate;
@@ -17,7 +17,7 @@ public class MemberHasPermissionsCheck implements Check {
     }
 
     @Override
-    public @NotNull Predicate<Context> getPredicate() {
+    public @NotNull Predicate<InteractionContext> getPredicate() {
         return ctx -> {
             Member member = ctx.getMember();
             if(member != null)

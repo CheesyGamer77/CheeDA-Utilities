@@ -1,10 +1,12 @@
 package pw.cheesygamer77.cheedautilities.commands;
 
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
-import pw.cheesygamer77.cheedautilities.context.Context;
+import pw.cheesygamer77.cheedautilities.context.InteractionContext;
 import pw.cheesygamer77.cheedautilities.context.SlashCommandContext;
+import pw.cheesygamer77.cheedautilities.context.internal.SlashCommandContextImpl;
 import pw.cheesygamer77.cheedautilities.errors.CommandNotFound;
 import pw.cheesygamer77.cheedautilities.checks.Check;
 import pw.cheesygamer77.cheedautilities.errors.CommandError;
@@ -20,9 +22,9 @@ import java.util.function.BiConsumer;
 public class CommandListener extends ListenerAdapter {
     private final HashMap<String, SlashCommand> slashCommands = new HashMap<>();
     private final Set<Check> checks = new HashSet<>();
-    private final BiConsumer<Context, CommandError> onCommandErrorCallback;
+    private final BiConsumer<InteractionContext, CommandError> onCommandErrorCallback;
 
-    public CommandListener(BiConsumer<Context, CommandError> onCommandErrorCallback) {
+    public CommandListener(BiConsumer<InteractionContext, CommandError> onCommandErrorCallback) {
         this.onCommandErrorCallback = onCommandErrorCallback;
     }
 
@@ -37,8 +39,8 @@ public class CommandListener extends ListenerAdapter {
     }
 
     @Override
-    public void onSlashCommand(@NotNull SlashCommandEvent event) {
-        SlashCommandContext ctx = new SlashCommandContext(event);
+    public void onSlashCommandInteraction(@NotNull SlashCommandInteractionEvent event) {
+        SlashCommandContext ctx = new SlashCommandContextImpl(event);
 
         SlashCommand command = slashCommands.get(event.getName());
         if(command == null)
