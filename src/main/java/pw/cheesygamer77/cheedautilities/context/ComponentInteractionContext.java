@@ -1,75 +1,29 @@
 package pw.cheesygamer77.cheedautilities.context;
 
-import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.entities.*;
+import net.dv8tion.jda.api.events.interaction.GenericInteractionCreateEvent;
+import net.dv8tion.jda.api.interactions.components.ActionComponent;
+import net.dv8tion.jda.api.interactions.components.Component;
 import net.dv8tion.jda.api.interactions.components.ComponentInteraction;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import pw.cheesygamer77.cheedautilities.context.Context;
-import pw.cheesygamer77.cheedautilities.converters.Converter;
 
-import java.util.HashMap;
-
-@SuppressWarnings("unused")
-public class ComponentInteractionContext implements Context {
-    private final ComponentInteraction interaction;
-
-    public ComponentInteractionContext(@NotNull ComponentInteraction interaction) {
-        this.interaction = interaction;
+/**
+ * Represents an {@link InteractionContext} for {@link ComponentInteraction}s
+ * @param <T> The {@link ComponentInteraction} type this wraps
+ */
+public interface ComponentInteractionContext<E extends GenericInteractionCreateEvent, I extends ComponentInteraction> extends InteractionContext<E, I> {
+    /**
+     * Returns the {@link ActionComponent} contained by this interaction
+     * @return The component
+     */
+    default @NotNull ActionComponent getComponent() {
+        return getInteraction().getComponent();
     }
 
-    @Override
-    public @NotNull JDA getJDA() {
-        return interaction.getJDA();
-    }
-
-    @Override
-    public @Nullable Guild getGuild() {
-        return interaction.getGuild();
-    }
-
-    @Override
-    public @NotNull MessageChannel getChannel() {
-        return interaction.getMessageChannel();
-    }
-
-    @Override
-    public @Nullable Message getMessage() {
-        return interaction.getMessage();
-    }
-
-    @Override
-    public @Nullable Member getAuthorAsMember() {
-        return interaction.getMessage().getMember();
-    }
-
-    @Override
-    public @Nullable User getAuthorAsUser() {
-        return interaction.getMessage().getAuthor();
-    }
-
-    @Override
-    public @Nullable Member getMember() {
-        assert getInteraction() != null;
-        return getInteraction().getMember();
-    }
-
-    @Override
-    public @Nullable HashMap<String, String> getArguments() {
-        return null;
-    }
-
-    @Override
-    public @Nullable HashMap<String, Converter<?>> getConverters() {
-        return null;
-    }
-
-    @Override
-    public @Nullable HashMap<String, Object> getConvertedArguments() {
-        return null;
-    }
-
-    public @Nullable ComponentInteraction getInteraction() {
-        return interaction;
+    /**
+     * Returns the {@link Component.Type} of the {@link ActionComponent} contained by this interaction context
+     * @return The component's type
+     */
+    default @NotNull Component.Type getComponentType() {
+        return getComponent().getType();
     }
 }
