@@ -4,12 +4,18 @@ import net.dv8tion.jda.api.events.Event;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.commands.Command.Type;
 
+import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.function.Predicate;
 
-public interface Command<E extends Event> {
+/**
+ * Interface for all given command
+ * @param <D> The command data type
+ * @param <E> The invoking event type
+ */
+public interface Command<D extends CommandData, E extends Event> {
     /**
      * Returns the name of this command
      * @return The command name
@@ -33,7 +39,7 @@ public interface Command<E extends Event> {
      * @param predicate The predicate
      * @return The current command
      */
-    @NotNull Command<E> addPredicate(@NotNull Predicate<SlashCommandInteractionEvent> predicate);
+    @NotNull Command<D, E> addPredicate(@NotNull Predicate<SlashCommandInteractionEvent> predicate);
 
     /**
      * Returns a list of all the required predicates that must pass before invoking this command
