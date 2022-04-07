@@ -1,6 +1,7 @@
 package pw.cheesygamer77.cheedautilities.commands;
 
 import net.dv8tion.jda.api.events.Event;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.commands.Command.Type;
 
 import org.jetbrains.annotations.NotNull;
@@ -26,6 +27,13 @@ public interface Command<E extends Event> {
      * @param event The event that invoked this command
      */
     void invoke(@NotNull E event);
+
+    /**
+     * Adds a predicate to this command
+     * @param predicate The predicate
+     * @return The current command
+     */
+    @NotNull Command<E> addPredicate(@NotNull Predicate<SlashCommandInteractionEvent> predicate);
 
     /**
      * Returns a list of all the required predicates that must pass before invoking this command
