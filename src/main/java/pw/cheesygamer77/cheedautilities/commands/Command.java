@@ -42,6 +42,12 @@ public interface Command<D extends CommandData, E extends Event> {
     @NotNull Command<D, E> addPredicate(@NotNull Predicate<SlashCommandInteractionEvent> predicate);
 
     /**
+     * Returns this command's data
+     * @return The command data
+     */
+    @NotNull D getData();
+
+    /**
      * Returns a list of all the required predicates that must pass before invoking this command
      * @return The list of required predicates
      */
