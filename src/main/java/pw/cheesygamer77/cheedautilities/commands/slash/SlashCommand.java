@@ -34,6 +34,11 @@ public abstract class SlashCommand implements Command<SlashCommandData, SlashCom
     }
 
     @Override
+    public @NotNull String getName() {
+        return getData().getName();
+    }
+
+    @Override
     public @NotNull List<Predicate<SlashCommandInteractionEvent>> getPredicates() {
         return predicates;
     }
