@@ -1,9 +1,10 @@
-package pw.cheesygamer77.cheedautilities.commands;
+package pw.cheesygamer77.cheedautilities.commands.slash;
 
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData;
 import net.dv8tion.jda.api.interactions.commands.Command.Type;
 import org.jetbrains.annotations.NotNull;
+import pw.cheesygamer77.cheedautilities.commands.Command;
 
 import java.util.ArrayList;
 import java.util.List;

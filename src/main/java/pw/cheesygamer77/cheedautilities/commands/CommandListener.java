@@ -4,6 +4,7 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.Command.Type;
 import org.jetbrains.annotations.NotNull;
+import pw.cheesygamer77.cheedautilities.commands.slash.SlashCommand;
 
 import java.util.ArrayList;
 import java.util.List;
