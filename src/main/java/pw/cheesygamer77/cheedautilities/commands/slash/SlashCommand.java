@@ -63,4 +63,26 @@ public abstract class SlashCommand implements SlashCommandInvokable<SlashCommand
     protected void addSubcommandGroup(SubcommandGroup group) {
         subcommandGroupMapping.put(group.getName(), group);
     }
+
+    @Override
+    public void call(@NotNull SlashCommandInteractionEvent event) {
+        String subcommandName = event.getSubcommandName();
+        String subcommandGroupName = event.getSubcommandGroup();
+
+        // check if there's no subcommand/group being called
+        if(subcommandGroupName == null && subcommandName == null)
+            if(canInvoke(event)) invoke(event);
+
+        // if a subcommand group is specified, call it's parsing
+        // otherwise, call the subcommand
+        if(subcommandGroupName != null) {
+            // TODO: Throw exception for missing subcommand group
+            SubcommandGroup group = subcommandGroupMapping.get(subcommandGroupName);
+            if(group != null) group.call(event);
+        } else {
+            // TODO: Throw exception for missing subcommand
+            Subcommand subcommand = subcommandMapping.get(subcommandName);
+            if(subcommand != null) subcommand.call(event);
+        }
+    }
 }
