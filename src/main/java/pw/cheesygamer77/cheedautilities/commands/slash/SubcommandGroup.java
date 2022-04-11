@@ -30,6 +30,11 @@ public abstract class SubcommandGroup implements SlashCommandInvokable<Subcomman
 
     @Override
     public void addPredicate(@NotNull Predicate<SlashCommandInteractionEvent> predicate) {
-        predicates.add(predicate);
+        this.predicates.add(predicate);
+    }
+
+    @Override
+    public @NotNull List<Predicate<SlashCommandInteractionEvent>> getPredicates() {
+        return predicates;
     }
 }

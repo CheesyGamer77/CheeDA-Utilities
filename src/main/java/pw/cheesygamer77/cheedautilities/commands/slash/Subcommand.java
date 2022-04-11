@@ -32,4 +32,9 @@ public abstract class Subcommand implements SlashCommandInvokable<SubcommandData
     public void addPredicate(@NotNull Predicate<SlashCommandInteractionEvent> predicate) {
         this.predicates.add(predicate);
     }
+
+    @Override
+    public @NotNull List<Predicate<SlashCommandInteractionEvent>> getPredicates() {
+        return predicates;
+    }
 }
