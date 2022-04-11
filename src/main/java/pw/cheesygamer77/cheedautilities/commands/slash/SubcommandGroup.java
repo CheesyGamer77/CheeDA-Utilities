@@ -1,7 +1,6 @@
 package pw.cheesygamer77.cheedautilities.commands.slash;
 
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
-import net.dv8tion.jda.api.interactions.commands.Command.Type;
 import net.dv8tion.jda.api.interactions.commands.build.SubcommandGroupData;
 import org.jetbrains.annotations.NotNull;
 import pw.cheesygamer77.cheedautilities.commands.slash.internal.SlashCommandInvokable;
@@ -17,11 +16,6 @@ public abstract class SubcommandGroup implements SlashCommandInvokable<Subcomman
 
     public SubcommandGroup(@NotNull SubcommandGroupData data) {
         this.data = data;
-    }
-
-    @Override
-    public @NotNull Type getType() {
-        return Type.SLASH;
     }
 
     @Override
