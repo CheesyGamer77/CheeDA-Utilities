@@ -45,4 +45,22 @@ public abstract class SlashCommand implements SlashCommandInvokable<SlashCommand
     public void addPredicate(@NotNull Predicate<SlashCommandInteractionEvent> predicate) {
         this.predicates.add(predicate);
     }
+
+    /**
+     * Adds a subcommand to this Slash Command
+     * @param subcommand The subcommand to add
+     * @see SlashCommand#addSubcommandGroup(SubcommandGroup)
+     */
+    protected void addSubcommand(Subcommand subcommand) {
+        subcommandMapping.put(subcommand.getName(), subcommand);
+    }
+
+    /**
+     * Adds a subcommand group to this Slash Command
+     * @param group The subcommand group to add
+     * @see SlashCommand#addSubcommand(Subcommand)
+     */
+    protected void addSubcommandGroup(SubcommandGroup group) {
+        subcommandGroupMapping.put(group.getName(), group);
+    }
 }
