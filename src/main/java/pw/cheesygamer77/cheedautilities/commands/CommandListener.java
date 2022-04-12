@@ -6,8 +6,7 @@ import net.dv8tion.jda.api.interactions.commands.Command.Type;
 import org.jetbrains.annotations.NotNull;
 import pw.cheesygamer77.cheedautilities.commands.slash.SlashCommand;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 /**
  * Represents an Event Listener that handles commands.
@@ -19,14 +18,12 @@ import java.util.List;
 public class CommandListener extends ListenerAdapter {
     // TODO: Add support of multiple command types
 
-    private final List<SlashCommand> commands = new ArrayList<>();
+    private final HashMap<String, SlashCommand> commands = new HashMap<>();
 
     @Override
     public void onSlashCommandInteraction(@NotNull SlashCommandInteractionEvent event) {
-        commands.stream()
-                .filter(cmd -> cmd.getName().equals(event.getName()))
-                .findFirst()
-                .ifPresent(cmd -> cmd.call(event));
+        SlashCommand command = commands.get(event.getName());
+        if(command != null) command.call(event);
     }
 
     /**
@@ -36,7 +33,7 @@ public class CommandListener extends ListenerAdapter {
      */
     public CommandListener addCommand(@NotNull SlashCommand command) {
         if(command.getType() == Type.SLASH)
-            commands.add(command);
+            commands.put(command.getName(), command);
 
         return this;
     }
