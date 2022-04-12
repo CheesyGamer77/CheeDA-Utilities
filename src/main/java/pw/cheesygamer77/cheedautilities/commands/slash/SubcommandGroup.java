@@ -42,6 +42,7 @@ public abstract class SubcommandGroup implements SlashCommandInvokable<Subcomman
 
     protected void addSubcommand(@NotNull Subcommand subcommand) {
         this.subcommandMapping.put(subcommand.getName(), subcommand);
+        data.addSubcommands(subcommand.getData());
     }
 
 

@@ -53,6 +53,7 @@ public abstract class SlashCommand implements SlashCommandInvokable<SlashCommand
      */
     protected void addSubcommand(@NotNull Subcommand subcommand) {
         subcommandMapping.put(subcommand.getName(), subcommand);
+        data.addSubcommands(subcommand.getData());
     }
 
     /**
@@ -62,6 +63,7 @@ public abstract class SlashCommand implements SlashCommandInvokable<SlashCommand
      */
     protected void addSubcommandGroup(@NotNull SubcommandGroup group) {
         subcommandGroupMapping.put(group.getName(), group);
+        data.addSubcommandGroups(group.getData());
     }
 
     @Override
