@@ -40,6 +40,11 @@ public abstract class SubcommandGroup implements SlashCommandInvokable<Subcomman
         return predicates;
     }
 
+    /**
+     * Adds a subcommand to this subcommand group
+     * @param subcommand The subcommand to add
+     * @see SlashCommand#addSubcommand(Subcommand)
+     */
     protected void addSubcommand(@NotNull Subcommand subcommand) {
         this.subcommandMapping.put(subcommand.getName(), subcommand);
         data.addSubcommands(subcommand.getData());
