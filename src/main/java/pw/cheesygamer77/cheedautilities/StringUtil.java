@@ -20,7 +20,6 @@ public final class StringUtil {
         for (String word : words) {
             word = word.strip();
 
-            System.out.println("\tCurrent Word: " + word);
             if (word.length() == 1)
                 word = word.toUpperCase(Locale.ROOT);
             else
